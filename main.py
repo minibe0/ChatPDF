@@ -1,5 +1,5 @@
-from dotenv import load_dotenv
-load_dotenv()
+#from dotenv import load_dotenv
+#load_dotenv()
 
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -10,6 +10,11 @@ from langchain.chains import RetrievalQA
 import streamlit as st
 import tempfile
 import os
+
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 
 # 제목
 st.title("ChatPDF로 물어보자🤓")
